@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Özür Dilerim ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: white;
+      overflow: hidden;
+    }
+
+    .slider-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.slide {
+  display: none;
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+}
+
+.slide.active {
+  display: block;
+  animation: fadeIn 1s ease-in-out;
+}
+
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    img {
+  	max-width: 90vw;
+  	max-height: 60vh;
+  	width: auto;
+  	height: auto;
+  	border-radius: 10px;
+  	margin-top: 20px;
+  	object-fit: contain;
+    }
+
+
+    iframe {
+      margin-top: 20px;
+    }
+
+.controls {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  display: flex;
+  gap: 10px;
+  flex-wrap: nowrap;
+  justify-content: center;
+  max-width: 100%;
+}
+
+.controls button {
+  background: #fff;
+  color: #111;
+  border: none;
+  padding: 12px 18px;
+  font-size: 14px;
+  margin: 5px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .controls button {
+    font-size: 13px;
+    padding: 10px 16px;
+  }
+}
+
+    /* ❤️ Kalpler Animasyonu */
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .heart {
+      position: absolute;
+      color: pink;
+      font-size: 24px;
+      animation: float 5s linear forwards;
+      opacity: 0.8;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1.5);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🎵 Fon Müziği -->
+  <audio id="bg-music" src="music/music.mp3" autoplay loop></audio>
+
+  <!-- ❤️ Kalpler Alanı -->
+  <div class="hearts"></div>
+
+  <!-- 📸 Slaytlar -->
+  <div class="slider-container">
+    <!-- Slayt 1 -->
+    <div class="slide active">
+      <h2>Canım Sevgilim</h2>
+      <p>Özür dilerim. Seni üzdüğüm, seni anlayamadığım her saniye için...</p>
+    </div>
+
+    <!-- Slayt 2 -->
+    <div class="slide">
+      <h2>5, 4, 3, 2, 1...</h2>
+      <p>Tamam baştan alıyorum. Ben Halit, 18 yaşındayım ve bir kıza aşık oldum. </p>
+      <img src="img/1.jpg" alt="Ötüken">
+    </div>
+
+    <!-- Slayt 3 -->
+    <div class="slide">
+      <h2>Kardelen</h2>
+      <p>Kurumuş dudaklarım çölde kalmışım gibi <br>
+	 Daha da küçülmüş bebeklerim <br>
+	 Gündüzlerim kısa <br>
+	 Sonsuz oldu gecelerim <br> 
+      </p>
+      <img src="img/2.jpg" alt="Birlikte çekilmiş fotoğraf">
+    </div>
+
+    <!-- Slayt 4 -->
+    <div class="slide">
+      <h2>Hayallerim ve Geleceğim</h2>
+      <p>Belki tam olarak olmadı istediklerimiz ama asıl hayalimizden vazgeçmedik, beraberiz... </p>
+      <img src="img/3.jpg" alt="Hayallerimiz">
+    </div>
+
+    <!-- Slayt 5 -->
+    <div class="slide">
+      <h2>Seni Seviyorum ❤️</h2>
+      <p>Baltanem, her zaman yanında olacağım.</p>
+      <img src="img/4.jpg" alt="Birlikte çekilmiş fotoğraf">
+    </div>
+
+    <!-- Slayt 6 -->
+    <div class="slide">
+      <h2>Ben seninle çok mutluyum</h2>
+      <p>Seninle yaşamak <br>
+	 Seninle öğrenmek <br>
+	 Seninle eğlenmek <br>
+	 Seninle gülmek seninle ağlamak istiyorum 
+      </p>
+      <img src="img/5.jpg" alt="Birlikte çekilmiş fotoğraf">	
+    </div>
+
+    <!-- Slayt 7 -->
+    <div class="slide">
+      <h2>Lütfen Affet Beni</h2>
+      <p>ki seni dünyanın en mutlu insanı yapabiliyim <br>
+	 Je t’aime très fort, mon amour. ❤️</p>
+      <img src="img/6.jpg" alt="Birlikte çekilmiş fotoğraf">
+    </div>
+
+    <!-- 🎮 Kontroller -->
+    <div class="controls">
+      <button onclick="prevSlide()">⟨ Geri</button>
+      <button onclick="nextSlide()">İleri ⟩</button>
+    </div>
+  </div>
+
+  <script>
+    // 🎞 Slaytlar
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+
+    function showSlide(index) {
+      slides.forEach(slide => slide.classList.remove('active'));
+      slides[index].classList.add('active');
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    // ❤️ Kalp Oluşturma
+    const heartsContainer = document.querySelector('.hearts');
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerHTML = '❤️';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.fontSize = (20 + Math.random() * 20) + 'px';
+      heartsContainer.appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }
+    setInterval(createHeart, 300);
+
+    // 🎵 Tarayıcı otomatik müziği engellerse, butona tıklama tetiklesin
+    document.querySelectorAll('button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const audio = document.getElementById('bg-music');
+        if (audio.paused) audio.play();
+      });
+    });
+  </script>
+
+</body>
+</html>
